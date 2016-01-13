@@ -1,4 +1,4 @@
-FROM tkelman/docker-julia-opensuse:part1
+FROM tkelman/docker-julia-opensuse:part2
 
-RUN make -j4 -C deps install-llvm install-fftw
+RUN make -j4
 WORKDIR /home/julia-x86_64
