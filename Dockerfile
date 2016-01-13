@@ -1,12 +1,4 @@
-FROM opensuse:42.1
+FROM tkelman/docker-julia-opensuse:part1
 
-RUN zypper -n install git ca-certificates-mozilla \
-        make which tar curl patch m4 cmake \
-        gcc5-c++ gcc5-fortran libopenssl-devel glibc-locale && \
-    git clone https://github.com/JuliaLang/julia /home/julia-x86_64 && \
-    cd /home/julia-x86_64 && \
-    echo 'override CC = gcc-5' >> Make.user && \
-    echo 'override CXX = g++-5' >> Make.user && \
-    echo 'override FC = gfortran-5' >> Make.user && \
-    make -j4 -C deps install-openblas
+RUN make -j4 -C deps install-llvm install-fftw
 WORKDIR /home/julia-x86_64
