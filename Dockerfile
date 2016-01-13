@@ -8,5 +8,5 @@ RUN zypper -n install git ca-certificates-mozilla \
     echo 'override CC = gcc-5' >> Make.user && \
     echo 'override CXX = g++-5' >> Make.user && \
     echo 'override FC = gfortran-5' >> Make.user && \
-    make -j4 -C deps install-openblas install-llvm install-fftw
+    make -j4 -C deps install-openblas
 WORKDIR /home/julia-x86_64
